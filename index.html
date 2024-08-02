@@ -18,7 +18,7 @@
       </nav>
     </header>
 
-    <section id="section1">
+    <!-- <section id="section1">
       <h2>Section 1</h2>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit pariatur
@@ -33,23 +33,110 @@
         nam quidem doloremque soluta deleniti ab molestias nihil accusantium,
         provident dolor eius. Saepe quia esse nesciunt earum nihil.
       </p>
-    </section>
+    </section> -->
 
-    <section id="section2">
-      <h2>Section 2</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit pariatur
-        autem voluptatum temporibus ipsum doloremque minus officiis, aliquid
-        dignissimos sit. Ex assumenda nemo harum, incidunt minima suscipit
-        corrupti nihil, debitis iure nulla temporibus maiores dolore neque,
-        voluptas soluta. Officia dicta id voluptas, delectus temporibus optio
-        animi reiciendis culpa, tenetur sint itaque velit a rem natus sit ad
-        quidem voluptatibus voluptates amet necessitatibus! Illo quidem ut quas
-        quis tempora? Cupiditate consequatur culpa perspiciatis, neque enim,
-        temporibus officia vitae dignissimos aspernatur quasi incidunt assumenda
-        nam quidem doloremque soluta deleniti ab molestias nihil accusantium,
-        provident dolor eius. Saepe quia esse nesciunt earum nihil.
-      </p>
+    <section class="responsive-center" id="section2">
+      <div>
+        <h2>Formulário</h2>
+        <p>
+          Um lindo e responsivo forumlário com os campos nome, email, telefone
+          cpf cnpj e CEP com auto complete.
+        </p>
+      </div>
+
+      <form id="main-form">
+        <label for="name"
+          >Nome:
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Ex: João da Silva"
+          />
+        </label>
+
+        <label for="phone"
+          >Telefone:
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Ex: (00) 12345-6789"
+          />
+        </label>
+
+        <label for="email"
+          >Email:
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Ex: exemplo@email.com"
+          />
+        </label>
+
+        <label for="cpf"
+          >CPF:
+          <input
+            type="text"
+            name="cpf"
+            id="cpf"
+            placeholder="Ex: 123.456.789-00"
+          />
+        </label>
+
+        <label for="cnpj"
+          >CNPJ:
+          <input
+            type="text"
+            name="cnpj"
+            id="cnpj"
+            placeholder="Ex: 12.345.678/0001-00"
+          />
+        </label>
+
+        <label for="cep"
+          >CEP:
+          <input type="text" name="cep" id="cep" placeholder="Ex: 12345-678" />
+        </label>
+
+        <label for="state"
+          >Estado:
+          <input
+            type="text"
+            name="state"
+            id="state"
+            placeholder="Ex: São Paulo"
+          />
+        </label>
+
+        <label for="city"
+          >Cidade:
+          <input
+            type="text"
+            name="city"
+            id="city"
+            placeholder="Ex: São Paulo"
+          />
+        </label>
+
+        <label for="street"
+          >Rua:
+          <input
+            type="text"
+            name="street"
+            id="street"
+            placeholder="Ex: Av. Paulista"
+          />
+        </label>
+
+        <label for="number"
+          >Número:
+          <input type="text" name="number" id="number" placeholder="Ex: 123" />
+        </label>
+
+        <button type="submit">Confirmar</button>
+      </form>
     </section>
 
     <footer>footer</footer>
