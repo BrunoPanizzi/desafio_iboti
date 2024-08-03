@@ -224,6 +224,12 @@ header > div {
 header li:hover {
   text-decoration: underline;
 }
+header #theme-toggle {
+  transition: rotate 0.2s;
+}
+header #theme-toggle:hover {
+  rotate: 45deg;
+}
 
 .responsive-center {
   max-width: min(calc(100% - 2rem), 80rem);
