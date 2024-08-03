@@ -54,19 +54,43 @@ a {
 
 :root[data-theme="light"] {
   --text: var(--color-zinc-900);
-  --background: var(--color-zinc-100);
+  --text-variant: var(--color-zinc-200);
+  --text-invert: var(--color-zinc-100);
+
+  --background: var(--color-zinc-200);
   --background-light: var(--color-zinc-50);
-  --primary: var(--color-teal-500);
-  --secondary: hsl(193, 73%, 74%);
-  --accent: hsl(202, 72%, 60%);
+  --header-background: var(--color-teal-950);
+
+  --primary: var(--color-teal-600);
+  --primary-background: var(--color-teal-200);
+
+  --danger: var(--color-red-600);
+  --danger-text: var(--color-red-800);
+  --danger-background: var(--color-red-200);
+
+  --disabled-border: var(--color-zinc-400);
+  --disabled-background: var(--color-zinc-300);
+  --disabled-text: var(--color-zinc-600);
 }
 :root[data-theme="dark"] {
   --text: var(--color-zinc-100);
+  --text-variant: var(--color-zinc-200);
+  --text-invert: var(--color-zinc-900);
+
   --background: var(--color-zinc-950);
   --background-light: var(--color-zinc-900);
-  --primary: hsl(164, 72%, 45%);
-  --secondary: hsl(193, 73%, 26%);
-  --accent: hsl(202, 72%, 40%);
+  --header-background: var(--color-teal-900);
+
+  --primary: var(--color-teal-500);
+  --primary-background: var(--color-teal-900);
+
+  --danger: var(--color-red-500);
+  --danger-text: var(--color-red-300);
+  --danger-background: var(--color-red-950);
+
+  --disabled-border: var(--color-zinc-500);
+  --disabled-background: var(--color-zinc-700);
+  --disabled-text: var(--color-zinc-300);
 }
 
 :root {
@@ -98,9 +122,9 @@ input {
   width: 100%;
   padding: 0.5em 0.75em;
   margin: 2px;
-  border: 2px solid color-mix(in srgb, var(--primary-dark) 50%, transparent);
+  border: 2px solid color-mix(in srgb, var(--primary) 50%, transparent);
   border-radius: 0.25rem;
-  background-color: var(--background);
+  background-color: transparent;
   color: var(--text);
   transition: border-color 0.2s, background-color 0.2s;
 }
@@ -113,8 +137,8 @@ input:hover,
 input:focus,
 input:focus-visible {
   outline: none;
-  border-color: var(--primary-dark);
-  background-color: color-mix(in srgb, var(--primary-dark) 10%, transparent);
+  border-color: var(--primary);
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
 }
 
 label {
@@ -124,7 +148,7 @@ label {
 }
 
 label > .field-error {
-  color: var(--color-red-800);
+  color: var(--danger-text);
   font-weight: 600;
 }
 
@@ -132,11 +156,11 @@ button {
   font-size: 1rem;
   padding: 0.5em 0.75em;
   margin: 2px;
-  border: 2px solid color-mix(in srgb, var(--primary-dark) 50%, transparent);
+  border: 2px solid color-mix(in srgb, var(--primary) 50%, transparent);
   border-radius: 0.25rem;
   background-color: var(--primary);
-  color: var(--text);
-  font-weight: 500;
+  color: var(--text-invert);
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
@@ -146,8 +170,8 @@ button:hover {
 }
 
 header {
-  background-color: var(--color-teal-900);
-  color: var(--color-zinc-200);
+  background-color: var(--header-background); /* color-teal-900 */
+  color: var(--text-variant); /* color-zinc-200 */
 }
 header > div {
   display: flex;
@@ -201,11 +225,10 @@ section p {
   font-size: 1.25rem;
   font-family: "Merrywether", serif;
   font-weight: 500;
-  border: 1px solid var(--color-zinc-400);
+  border: 1px solid var(--border-color);
   padding: 0.75em 1.5em;
   border-radius: 50rem;
   color: var(--text-color);
-  border-color: var(--border-color);
   background-color: color-mix(
     in srgb,
     var(--background-color) var(--opacity),
@@ -230,17 +253,17 @@ section p {
 }
 
 .advantages .bad {
-  --shadow-color: var(--color-red-950);
-  --text-color: var(--color-red-400);
-  --border-color: var(--color-red-800);
-  --background-color: var(--color-red-950);
+  --shadow-color: var(--danger-background);
+  --text-color: var(--danger);
+  --border-color: var(--danger);
+  --background-color: var(--danger-background);
 }
 
 .advantages .good {
-  --shadow-color: var(--color-teal-950);
-  --text-color: var(--color-teal-400);
-  --border-color: var(--color-teal-800);
-  --background-color: var(--color-teal-950);
+  --shadow-color: var(--primary-background);
+  --text-color: var(--primary);
+  --border-color: var(--primary);
+  --background-color: var(--primary-background);
 }
 
 #section2 {
@@ -287,7 +310,7 @@ section p {
 }
 
 #main-form > .form-error {
-  color: var(--color-red-500);
+  color: var(--danger-text);
 }
 
 #cep-wrapper {
@@ -298,15 +321,23 @@ section p {
 }
 
 input[state="error"] {
-  border-color: var(--color-red-700);
-  background-color: color-mix(in srgb, var(--color-red-200) 20%, transparent);
-  color: var(--color-red-950);
+  border-color: var(--danger);
+  background-color: color-mix(
+    in srgb,
+    var(--danger-background) 20%,
+    transparent
+  );
+  color: var(--danger-text);
 }
 
 input[state="loading"] {
-  border-color: var(--color-zinc-400);
-  background-color: color-mix(in srgb, var(--color-zinc-300) 40%, transparent);
-  color: var(--color-zinc-600);
+  border-color: var(--disabled-border);
+  background-color: color-mix(
+    in srgb,
+    var(--disabled-background) 40%,
+    transparent
+  );
+  color: var(--disabled-text);
 }
 
 #cep-wrapper:has(input[state="loading"])::after {
@@ -320,7 +351,7 @@ input[state="loading"] {
 }
 
 footer {
-  background-color: var(--accent);
+  background-color: var(--primary-background);
   padding: 1rem;
 }
 
