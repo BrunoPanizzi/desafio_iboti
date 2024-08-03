@@ -97,7 +97,15 @@
 
         <label for="cep"
           >CEP:
-          <input type="text" name="cep" id="cep" placeholder="Ex: 12345-678" />
+          <div id="cep-wrapper">
+            <input
+              type="text"
+              maxlength="9"
+              name="cep"
+              id="cep"
+              placeholder="Ex: 12345-678"
+            />
+          </div>
         </label>
 
         <label for="state"
@@ -127,6 +135,16 @@
             name="street"
             id="street"
             placeholder="Ex: Av. Paulista"
+          />
+        </label>
+
+        <label for="neighborhood"
+          >Bairro:
+          <input
+            type="text"
+            name="neighborhood"
+            id="neighborhood"
+            placeholder="Ex: Bela Vista"
           />
         </label>
 
