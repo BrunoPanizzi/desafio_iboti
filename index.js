@@ -252,3 +252,23 @@ form.addEventListener("input", () => {
 
   formError.textContent = "";
 });
+
+const themeToggle = document.querySelector("#theme-toggle");
+const themeImg = themeToggle.querySelector("img");
+
+themeToggle.addEventListener("click", () => {
+  const html = document.querySelector("html");
+
+  let theme = html.getAttribute("data-theme");
+  if (theme === "light") {
+    theme = "dark";
+    themeImg.src = "assets/sun.svg";
+    themeImg.alt = "tema claro";
+  } else {
+    theme = "light";
+    themeImg.src = "assets/moon.svg";
+    themeImg.alt = "tema escuro";
+  }
+
+  html.setAttribute("data-theme", theme);
+});

@@ -153,6 +153,16 @@ label > .field-error {
 }
 
 button {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button {
   font-size: 1rem;
   padding: 0.5em 0.75em;
   margin: 2px;
@@ -165,7 +175,7 @@ button {
   transition: background-color 0.2s, color 0.2s;
 }
 
-button:hover {
+.button:hover {
   background-color: color-mix(in srgb, var(--primary) 90%, var(--text) 10%);
 }
 
@@ -179,6 +189,10 @@ header {
   background-color: var(--header-background); /* color-teal-900 */
   color: var(--text-variant); /* color-zinc-200 */
 }
+header h1 {
+  flex: 1;
+  white-space: nowrap;
+}
 header > div {
   display: flex;
   justify-content: space-between;
@@ -186,9 +200,26 @@ header > div {
   gap: 1rem;
   padding: 1rem 0;
 }
-header nav > ul {
+.header-right {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+}
+@media (max-width: 50rem) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .header-right {
+    gap: 1rem;
+  }
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  width: fit-content;
+  gap: 0 1rem;
 }
 header li:hover {
   text-decoration: underline;

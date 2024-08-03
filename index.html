@@ -17,12 +17,17 @@
     <header>
       <div class="responsive-center">
         <h1>Olá, mundo!</h1>
-        <nav>
-          <ul>
-            <li><a href="#section1">Sobre o desafio</a></li>
-            <li><a href="#section2">Formulário</a></li>
-          </ul>
-        </nav>
+        <div class="header-right">
+          <nav>
+            <ul class="links">
+              <li><a href="#section1">Sobre o desafio</a></li>
+              <li><a href="#section2">Formulário</a></li>
+            </ul>
+          </nav>
+          <button id="theme-toggle">
+            <img src="assets/moon.svg" alt="Tema escuro" />
+          </button>
+        </div>
       </div>
     </header>
 
@@ -201,7 +206,7 @@
             <span class="field-error"></span>
           </label>
 
-          <button type="submit">Confirmar</button>
+          <button class="button" type="submit">Confirmar</button>
           <span class="form-error"></span>
           <span class="form-message"></span>
         </form>
