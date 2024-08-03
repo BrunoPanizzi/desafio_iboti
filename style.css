@@ -169,6 +169,12 @@ button:hover {
   background-color: color-mix(in srgb, var(--primary) 90%, var(--text) 10%);
 }
 
+.link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 header {
   background-color: var(--header-background); /* color-teal-900 */
   color: var(--text-variant); /* color-zinc-200 */
@@ -176,8 +182,16 @@ header {
 header > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   padding: 1rem 0;
+}
+header nav > ul {
+  display: flex;
+  gap: 1rem;
+}
+header li:hover {
+  text-decoration: underline;
 }
 
 .responsive-center {
@@ -351,7 +365,8 @@ input[state="loading"] {
 }
 
 footer {
-  background-color: var(--primary-background);
+  background-color: var(--header-background);
+  color: var(--text-variant);
   padding: 1rem;
 }
 
