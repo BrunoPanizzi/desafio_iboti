@@ -110,6 +110,11 @@ label {
   font-size: 14px;
 }
 
+label > .field-error {
+  color: var(--color-red-800);
+  font-weight: 600;
+}
+
 button {
   font-size: 1rem;
   padding: 0.5em 0.75em;
@@ -186,13 +191,13 @@ section {
   width: 100%;
 }
 
-#cep[state="error"] {
+input[state="error"] {
   border-color: var(--color-red-700);
   background-color: color-mix(in srgb, var(--color-red-200) 20%, transparent);
   color: var(--color-red-950);
 }
 
-#cep[state="loading"] {
+input[state="loading"] {
   border-color: var(--color-zinc-400);
   background-color: color-mix(in srgb, var(--color-zinc-300) 40%, transparent);
   color: var(--color-zinc-600);
