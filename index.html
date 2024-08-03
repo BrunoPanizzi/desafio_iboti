@@ -1,173 +1,209 @@
 <!DOCTYPE html>
-<html data-theme="light" lang="en">
+<html data-theme="dark" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página legal</title>
+    <title>Teste técnico • Bruno Panizzi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="index.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Hello, world!</h1>
-      <nav>
-        <ul>
-          <li><a href="#section1">parte1</a></li>
-          <li><a href="#section2">parte2</a></li>
-        </ul>
-      </nav>
+      <div class="responsive-center">
+        <h1>Olá, mundo!</h1>
+        <nav>
+          <ul>
+            <li><a href="#section1">parte1</a></li>
+            <li><a href="#section2">parte2</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <!-- <section id="section1">
-      <h2>Section 1</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit pariatur
-        autem voluptatum temporibus ipsum doloremque minus officiis, aliquid
-        dignissimos sit. Ex assumenda nemo harum, incidunt minima suscipit
-        corrupti nihil, debitis iure nulla temporibus maiores dolore neque,
-        voluptas soluta. Officia dicta id voluptas, delectus temporibus optio
-        animi reiciendis culpa, tenetur sint itaque velit a rem natus sit ad
-        quidem voluptatibus voluptates amet necessitatibus! Illo quidem ut quas
-        quis tempora? Cupiditate consequatur culpa perspiciatis, neque enim,
-        temporibus officia vitae dignissimos aspernatur quasi incidunt assumenda
-        nam quidem doloremque soluta deleniti ab molestias nihil accusantium,
-        provident dolor eius. Saepe quia esse nesciunt earum nihil.
-      </p>
-    </section> -->
-
-    <section class="responsive-center" id="section2">
+    <section id="section1" class="responsive-center responsive-columns">
       <div>
-        <h2>Formulário</h2>
+        <h2>Sobre o desafio</h2>
         <p>
-          Um lindo e responsivo forumlário com os campos nome, email, telefone
-          cpf cnpj e CEP com auto complete.
+          Para elaborar o desafio proposto, decidi manter as coisas
+          relativamente simples. Como o projeto possui apenas uma página, evitei
+          utilizar quaisquer ferramentas e bibliotecas JavaScript que pudessem
+          aumentar a complexidade e o tamanho da aplicação, como o React. Como
+          resultado, o site é composto apenas dos arquvios necessários: o
+          <tt>index.html</tt> dá a estrutura da página; <tt>style.css</tt>, para
+          estilização e criação dos layouts; e por fim um arquivo JavaScript
+          <tt>index.js</tt>, para validar o formulário e buscar as informações
+          do CEP.
+        </p>
+        <p>
+          Sem dúvidas, uma aplicação sem <i>frameworks</i> pode não ser adequada
+          para um projeto de grande escala (para ver projetos mais complexos,
+          visite <a href="https://brunopanizzi.dev.br/projects">meu site</a>),
+          mas para um projeto pequeno como este, a simplicidade é uma vantagem.
+          O código pode ser repetitivo, mas evitar o uso de dependências força o
+          desenvolvedor a criar soluções específicas para os problemas
+          enfrentados, gerando um maior entendimento de como todas as peças se
+          encaixarm. No final das contas, os usuários só precisam de uma
+          aplicação que atenda suas necessidades.
         </p>
       </div>
+      <div class="advantages">
+        <ul>
+          <li class="bad">Menos complexidade</li>
+          <li class="bad">Menos dependências</li>
+          <li class="bad">Menor custo</li>
+          <li class="good">Mais controle</li>
+          <li class="good">Mais rápido</li>
+          <li class="good">Experiência do usuário</li>
+        </ul>
+      </div>
+    </section>
 
-      <form novalidate id="main-form">
-        <label for="name"
-          >Nome:
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Ex: João da Silva"
-          />
-          <span class="field-error"></span>
-        </label>
+    <section id="section2">
+      <div class="responsive-center responsive-columns">
+        <div>
+          <h2>Formulário</h2>
+          <p>
+            Um lindo e responsivo forumlário com os campos nome, email, telefone
+            cpf cnpj e CEP com auto complete.
+          </p>
+        </div>
 
-        <label for="phone"
-          >Telefone:
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            placeholder="Ex: (00) 12345-6789"
-          />
-          <span class="field-error"></span>
-        </label>
-
-        <label for="email"
-          >Email:
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Ex: exemplo@email.com"
-          />
-          <span class="field-error"></span>
-        </label>
-
-        <label for="cpf"
-          >CPF:
-          <input
-            type="text"
-            name="cpf"
-            id="cpf"
-            placeholder="Ex: 123.456.789-00"
-          />
-          <span class="field-error"></span>
-        </label>
-
-        <label for="cnpj"
-          >CNPJ:
-          <input
-            type="text"
-            name="cnpj"
-            id="cnpj"
-            placeholder="Ex: 12.345.678/0001-00"
-          />
-          <span class="field-error"></span>
-        </label>
-
-        <label for="cep"
-          >CEP:
-          <div id="cep-wrapper">
+        <form novalidate id="main-form">
+          <label for="name"
+            >Nome:
             <input
               type="text"
-              maxlength="9"
-              name="cep"
-              id="cep"
-              placeholder="Ex: 12345-678"
+              name="name"
+              id="name"
+              placeholder="Ex: João da Silva"
             />
-          </div>
-          <span class="field-error"></span>
-        </label>
+            <span class="field-error"></span>
+          </label>
 
-        <label for="state"
-          >Estado:
-          <input
-            type="text"
-            name="state"
-            id="state"
-            placeholder="Ex: São Paulo"
-          />
-          <span class="field-error"></span>
-        </label>
+          <label for="phone"
+            >Telefone:
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="Ex: (00) 12345-6789"
+            />
+            <span class="field-error"></span>
+          </label>
 
-        <label for="city"
-          >Cidade:
-          <input
-            type="text"
-            name="city"
-            id="city"
-            placeholder="Ex: São Paulo"
-          />
-          <span class="field-error"></span>
-        </label>
+          <label for="email"
+            >Email:
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Ex: exemplo@email.com"
+            />
+            <span class="field-error"></span>
+          </label>
 
-        <label for="street"
-          >Rua:
-          <input
-            type="text"
-            name="street"
-            id="street"
-            placeholder="Ex: Av. Paulista"
-          />
-          <span class="field-error"></span>
-        </label>
+          <label for="cpf"
+            >CPF:
+            <input
+              type="text"
+              name="cpf"
+              id="cpf"
+              placeholder="Ex: 123.456.789-00"
+            />
+            <span class="field-error"></span>
+          </label>
 
-        <label for="neighborhood"
-          >Bairro:
-          <input
-            type="text"
-            name="neighborhood"
-            id="neighborhood"
-            placeholder="Ex: Bela Vista"
-          />
-          <span class="field-error"></span>
-        </label>
+          <label for="cnpj"
+            >CNPJ:
+            <input
+              type="text"
+              name="cnpj"
+              id="cnpj"
+              placeholder="Ex: 12.345.678/0001-00"
+            />
+            <span class="field-error"></span>
+          </label>
 
-        <label for="number"
-          >Número:
-          <input type="text" name="number" id="number" placeholder="Ex: 123" />
-          <span class="field-error"></span>
-        </label>
+          <label for="cep"
+            >CEP:
+            <div id="cep-wrapper">
+              <input
+                type="text"
+                maxlength="9"
+                name="cep"
+                id="cep"
+                placeholder="Ex: 12345-678"
+              />
+            </div>
+            <span class="field-error"></span>
+          </label>
 
-        <button type="submit">Confirmar</button>
-        <span class="form-error"></span>
-        <span class="form-message"></span>
-      </form>
+          <label for="state"
+            >Estado:
+            <input
+              type="text"
+              name="state"
+              id="state"
+              placeholder="Ex: São Paulo"
+            />
+            <span class="field-error"></span>
+          </label>
+
+          <label for="city"
+            >Cidade:
+            <input
+              type="text"
+              name="city"
+              id="city"
+              placeholder="Ex: São Paulo"
+            />
+            <span class="field-error"></span>
+          </label>
+
+          <label for="street"
+            >Rua:
+            <input
+              type="text"
+              name="street"
+              id="street"
+              placeholder="Ex: Av. Paulista"
+            />
+            <span class="field-error"></span>
+          </label>
+
+          <label for="neighborhood"
+            >Bairro:
+            <input
+              type="text"
+              name="neighborhood"
+              id="neighborhood"
+              placeholder="Ex: Bela Vista"
+            />
+            <span class="field-error"></span>
+          </label>
+
+          <label for="number"
+            >Número:
+            <input
+              type="text"
+              name="number"
+              id="number"
+              placeholder="Ex: 123"
+            />
+            <span class="field-error"></span>
+          </label>
+
+          <button type="submit">Confirmar</button>
+          <span class="form-error"></span>
+          <span class="form-message"></span>
+        </form>
+      </div>
     </section>
 
     <footer>footer</footer>

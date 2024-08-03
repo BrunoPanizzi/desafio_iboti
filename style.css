@@ -55,13 +55,15 @@ a {
 :root[data-theme="light"] {
   --text: var(--color-zinc-900);
   --background: var(--color-zinc-100);
+  --background-light: var(--color-zinc-50);
   --primary: var(--color-teal-500);
   --secondary: hsl(193, 73%, 74%);
   --accent: hsl(202, 72%, 60%);
 }
 :root[data-theme="dark"] {
-  --text: hsl(162, 74%, 94%);
-  --background: hsl(164, 73%, 3%);
+  --text: var(--color-zinc-100);
+  --background: var(--color-zinc-950);
+  --background-light: var(--color-zinc-900);
   --primary: hsl(164, 72%, 45%);
   --secondary: hsl(193, 73%, 26%);
   --accent: hsl(202, 72%, 40%);
@@ -78,8 +80,17 @@ html {
 body {
   color: var(--text);
   background-color: var(--background);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merrywether", serif;
 }
 
 input {
@@ -133,12 +144,14 @@ button:hover {
 }
 
 header {
+  background-color: var(--color-teal-900);
+  color: var(--color-zinc-200);
+}
+header > div {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem;
-
-  background-color: var(--secondary);
+  padding: 1rem 0;
 }
 
 .responsive-center {
@@ -148,22 +161,103 @@ header {
 
 section {
   min-height: 100dvh;
+  padding-block: 3rem;
 }
-#section2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding-top: 2rem;
+
+#section1 h2 {
+  font-size: 3rem;
+}
+#section1 p {
+  font-size: 1.125rem;
+  line-height: 2em;
+  margin-block: 1rem;
 }
 
 @media (max-width: 50rem) {
-  #section2 {
+  #section1 h2 {
+    font-size: 2rem;
+  }
+  #section1 p {
+    font-size: 1rem;
+  }
+}
+
+.advantages {
+  height: 100%;
+}
+.advantages ul {
+  height: 100%;
+  display: grid;
+  padding-block: 3rem;
+  gap: 1rem;
+  grid-auto-rows: min-content;
+  justify-items: center;
+}
+
+.advantages li {
+  --opacity: 20%;
+  font-size: 1.25rem;
+  font-family: "Merrywether", serif;
+  font-weight: 500;
+  border: 1px solid var(--color-zinc-400);
+  padding: 0.75em 1.5em;
+  border-radius: 50rem;
+  color: var(--text-color);
+  border-color: var(--border-color);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color) var(--opacity),
+    transparent
+  );
+  box-shadow: 0 0.25rem 1rem 0
+    color-mix(in srgb, var(--shadow-color) var(--opacity), transparent);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+@media (max-width: 50rem) {
+  .advantages ul {
+    padding-block: 1rem;
+  }
+  .advantages li {
+    font-size: 1rem;
+  }
+}
+
+.advantages li:hover {
+  --opacity: 50%;
+}
+
+.advantages .bad {
+  --shadow-color: var(--color-red-950);
+  --text-color: var(--color-red-400);
+  --border-color: var(--color-red-800);
+  --background-color: var(--color-red-950);
+}
+
+.advantages .good {
+  --shadow-color: var(--color-teal-950);
+  --text-color: var(--color-teal-400);
+  --border-color: var(--color-teal-800);
+  --background-color: var(--color-teal-950);
+}
+
+#section2 {
+  background-color: var(--background-light);
+}
+.responsive-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 50rem) {
+  .responsive-columns {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
   }
 }
 
-#section2 > form {
+#main-form {
   display: grid;
 
   grid-template-columns: repeat(2, 1fr);
@@ -171,20 +265,20 @@ section {
   gap: 0.5rem 1rem;
 }
 
-#section2 > form > label:has(input[name="email"]) {
+#main-form > label:has(input[name="email"]) {
   grid-column: span 2;
 }
-#section2 > form > label:has(input[name="cep"]) {
+#main-form > label:has(input[name="cep"]) {
   margin-top: 1rem;
   grid-column: span 2;
 }
 
-#section2 > form > button {
+#main-form > button {
   grid-column: span 2;
   font-size: 17px;
 }
 
-#section2 > form > .form-error {
+#main-form > .form-error {
   color: var(--color-red-500);
 }
 
