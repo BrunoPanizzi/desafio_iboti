@@ -184,6 +184,10 @@ section {
   font-size: 17px;
 }
 
+#section2 > form > .form-error {
+  color: var(--color-red-500);
+}
+
 #cep-wrapper {
   position: relative;
 }

@@ -34,6 +34,7 @@ class InputField {
     }
 
     this.onInput(() => this.removeErrors());
+    this.validator = (value) => value.length > 0;
   }
 
   setError(message) {
@@ -62,6 +63,17 @@ class InputField {
 
   onInput(fn) {
     this.input.addEventListener("input", fn);
+  }
+
+  // returns the value of the input if it's valid based on validator
+  // validator can be set like `input.validator = (value) => value.length > 5`
+  // default validator checks for empty string
+  valueOrError(error) {
+    if (!this.validator(this.value)) {
+      this.setError(error);
+      return null;
+    }
+    return this.value;
   }
 
   valueOrThrow(config) {
@@ -110,6 +122,13 @@ const inputs = inputNames.reduce((acc, curr) => {
   acc[curr] = new InputField(curr);
   return acc;
 }, {});
+inputs.email.validator = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+inputs.phone.validator = (phone) => /^\(\d{2}\) \d{4,5}-\d{4}$/.test(phone);
+inputs.cpf.validator = (cpf) => /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf);
+inputs.cnpj.validator = (cnpj) =>
+  /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/.test(cnpj);
+inputs.cep.validator = (cep) => /^\d{5}-\d{3}$/.test(cep);
+inputs.number.validator = (number) => Number(number) > 0;
 
 const testCep = (cep) => {
   return /^[0-9]{5}-[0-9]{3}$/.test(cep);
@@ -210,5 +229,26 @@ inputs.cnpj.onInput(() => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const name = inputs.name.valueOrThrow({ message: "Preencha o nome" });
+  let errors = false;
+  let fields = inputNames.reduce((acc, curr) => {
+    const value = inputs[curr].valueOrError("");
+    if (value === null) errors = true;
+    acc[curr] = value;
+    return acc;
+  }, {});
+
+  if (errors) {
+    const formError = form.querySelector(".form-error");
+    formError.textContent = "Preencha os campos em vermelho";
+
+    return;
+  }
+
+  alert(JSON.stringify(fields));
+});
+
+form.addEventListener("input", () => {
+  const formError = form.querySelector(".form-error");
+
+  formError.textContent = "";
 });
